@@ -1,7 +1,5 @@
 package pl.sdacademy.thinkingisfun;
 
-import java.util.Arrays;
-
 public class ArraysAreFun {
     public Integer[] merge(Integer[] first, Integer[] second) {
         if (first.length == 0) {
@@ -37,19 +35,32 @@ public class ArraysAreFun {
                 f++;
             }
         }
-        System.out.println(Arrays.toString(sum));
         return sum;
     }
 
     public Integer[] reverse(Integer[] array) {
-        return new Integer[0];
+        Integer[] arrayInverted = new Integer[array.length];
+        for (int i = array.length - 1; i >= 0; i--) {
+            arrayInverted[(i - array.length + 1) * -1] = array[i];
+        }
+        return arrayInverted;
     }
 
     public Integer[] roll(Integer[] array, int amount) {
-        return new Integer[0];
+        while (amount != 0) {
+            int tempF = array[0];
+//            for (int i = 0; i < array.length - 1; i++) {
+//                array[i] = array[i + 1];
+//            }
+            System.arraycopy(array, 1, array, 0, array.length - 1);
+            array[array.length - 1] = tempF;
+            amount--;
+        }
+        return array;
     }
 
     public Integer[] longestGrowingTrent(Integer[] array) {
+
         return new Integer[0];
     }
 }
