@@ -52,7 +52,7 @@ public class ArraysAreFun {
     public Integer[] roll(Integer[] array, int amount) {
         while (amount != 0) {
             int tempF = array[0];
-//            for (int i = 0; i < array.length - 1; i++) {
+//            for (int i = 0; i < array.length - 1; i++) { // manualnie
 //                array[i] = array[i + 1];
 //            }
             System.arraycopy(array, 1, array, 0, array.length - 1);
@@ -63,23 +63,26 @@ public class ArraysAreFun {
     }
 
     public Integer[] longestGrowingTrent(Integer[] array) {
-        List<List<Integer>> results = new ArrayList<>();
         List<Integer> result = new ArrayList<>();
-//        Integer[] result = new Integer[array.length];
-//        result[0] = 0;
+        List<Integer> resultLongest = new ArrayList<>(); // *zeby rozmiar resultLongest == 0
+
         for (int i = 0; i < array.length - 1; i++) {
-            if (array[i] <= array[i + 1]) {
+            if (array[i] < array[i + 1]) {
                 result.add(array[i]);
-//                result[r++] = i;
+            } else if (array[i].equals(array[i + 1])) {
+                result.add(array[++i]);
             } else {
-                results.add(result);
-                result = new Integer[array.length];
-                r = 0;
+                if (i > 1 && array[i - 2] < array[i - 1] && array[i - 1] < array[i]) {
+                    result.add(array[i]);
+                }
+                if (result.size() > resultLongest.size()) { // *
+                    resultLongest = new ArrayList<>(result);
+                    result.clear();
+                }
             }
         }
-        if (array[array.length - 2] < array[array.length - 1]) {
-            result.add(array[array.length - 2]);
-        }
-        return result.toArray(new Integer[0]);
+//        Integer[] objects = resultLongest.toArray(new Integer[0]); // for printing only
+//        System.out.println(Arrays.toString(objects));
+        return resultLongest.toArray(new Integer[0]);
     }
 }
