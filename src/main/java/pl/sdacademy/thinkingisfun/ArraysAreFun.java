@@ -1,5 +1,8 @@
 package pl.sdacademy.thinkingisfun;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ArraysAreFun {
     public Integer[] merge(Integer[] first, Integer[] second) {
         if (first.length == 0) {
@@ -60,7 +63,23 @@ public class ArraysAreFun {
     }
 
     public Integer[] longestGrowingTrent(Integer[] array) {
-
-        return new Integer[0];
+        List<List<Integer>> results = new ArrayList<>();
+        List<Integer> result = new ArrayList<>();
+//        Integer[] result = new Integer[array.length];
+//        result[0] = 0;
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i] <= array[i + 1]) {
+                result.add(array[i]);
+//                result[r++] = i;
+            } else {
+                results.add(result);
+                result = new Integer[array.length];
+                r = 0;
+            }
+        }
+        if (array[array.length - 2] < array[array.length - 1]) {
+            result.add(array[array.length - 2]);
+        }
+        return result.toArray(new Integer[0]);
     }
 }
