@@ -6,7 +6,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class ArraysAreFunTest {
-
     private ArraysAreFun fun;
 
     @Before
