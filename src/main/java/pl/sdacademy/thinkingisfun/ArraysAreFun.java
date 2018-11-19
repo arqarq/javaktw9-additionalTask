@@ -43,6 +43,7 @@ public class ArraysAreFun {
 
     public Integer[] reverse(Integer[] array) {
         Integer[] arrayInverted = new Integer[array.length];
+
         for (int i = array.length - 1; i >= 0; i--) {
             arrayInverted[(i - array.length + 1) * -1] = array[i];
         }

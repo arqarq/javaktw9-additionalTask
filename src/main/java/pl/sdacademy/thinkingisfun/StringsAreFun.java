@@ -1,12 +1,22 @@
 package pl.sdacademy.thinkingisfun;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class StringsAreFun {
     public boolean isPalindrome(String toBeTested) {
+
         return false;
     }
 
     public Integer countOccurences(String toBeTested, String toBeFound) {
-        return -1;
+        int count = 0;
+        Pattern whatToFind = Pattern.compile(toBeFound + "*");
+        Matcher matcher = whatToFind.matcher(toBeTested);
+        while (matcher.find()) {
+            count++;
+        }
+        return count;
     }
 
     public String rot13(String toBeCoded) {
