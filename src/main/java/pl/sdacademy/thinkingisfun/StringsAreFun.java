@@ -5,8 +5,12 @@ import java.util.regex.Pattern;
 
 public class StringsAreFun {
     public boolean isPalindrome(String toBeTested) {
-
-        return false;
+        for (int i = (toBeTested.length() - 1) / 2; i >= 0; i--) {
+            if (toBeTested.charAt((i - toBeTested.length() + 1) * -1) != toBeTested.charAt(i)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public Integer countOccurences(String toBeTested, String toBeFound) {
