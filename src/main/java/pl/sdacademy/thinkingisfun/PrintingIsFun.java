@@ -6,7 +6,7 @@ import java.io.OutputStream;
 public class PrintingIsFun {
     private OutputStream output = System.out;
 
-    public void printRectangle(int width, int height) throws IOException {
+    public void printRectangle(int width, int height) {
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < width; i++) {
